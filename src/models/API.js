@@ -1,6 +1,5 @@
 import axios from 'axios'
 import queryString from 'query-string'
-import "babel-polyfill";
 
 const api = axios.create({
     baseURL: process.env.REACT_APP__API_URL,
