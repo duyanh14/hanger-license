@@ -4,6 +4,7 @@ import {useRecoilState} from "recoil";
 import {config as storeConfig} from "../stores/Config";
 import modelAccount from '../models/Account'
 import {account as storeAccount} from "../stores/Account";
+import {loading as storeLoading} from "../stores/App";
 
 var md5 = require('md5');
 
@@ -13,6 +14,8 @@ export default function Login(props) {
 
     const [useConfig, setConfig] = useRecoilState(storeConfig);
     const [useAccount, setAccount] = useRecoilState(storeAccount);
+
+    const [useLoading, setLoading] = useRecoilState(storeLoading);
 
     const [useNotice, setNotice] = useState();
     const [useView, setView] = useState("login");
@@ -45,6 +48,7 @@ export default function Login(props) {
     const login = async () => {
         try {
             const login = await modelAccount.login(useLoginField['email'], useLoginField['password']);
+            setLoading(true);
             setAccount(login);
             localStorage.setItem("account", login['access_token']);
         } catch (err) {
@@ -91,7 +95,7 @@ export default function Login(props) {
 
     return (
         <div className="container">
-            <div className="col-sm-5 mx-auto mt-5">
+            <div className="col-sm-10 col-md-5 mx-auto mt-5">
                 <div className="panel panel-default">
                     <div className="panel-body">
                         <div>

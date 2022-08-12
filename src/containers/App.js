@@ -12,6 +12,9 @@ import {
 import {
     product as storeProduct,
 } from '../stores/Product'
+import {
+    loading as storeLoading,
+} from '../stores/App'
 import Navigation from "../components/Navigation";
 import {useRecoilState} from "recoil";
 import HttpApi from "i18next-http-backend";
@@ -32,7 +35,7 @@ export default function App() {
     const [useProduct, setProduct] = useRecoilState(storeProduct);
     const [useProductLicense, setProductLicense] = useRecoilState(storeProductLicense);
 
-    const [useLoading, setLoading] = useState(true);
+    const [useLoading, setLoading] = useRecoilState(storeLoading);
 
     let loadingCount = 0;
     const loading = () => {
@@ -92,7 +95,7 @@ export default function App() {
             loading();
         }
         setup();
-    }, [])
+    }, [useAccount])
 
     return (
         <div>

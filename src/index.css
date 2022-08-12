@@ -12,4 +12,6 @@ code {
     monospace;
 }
 
-
+.cursor-pointer {
+  cursor: pointer;
+}

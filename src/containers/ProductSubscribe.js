@@ -117,7 +117,9 @@ export default function ProductSubscribe(props) {
                                                 <td className="align-middle">0 {useConfig['currency']}</td>
                                                 <td className="align-middle">
                                                     <button type="button" className="btn btn-primary"
-                                                            disabled={useProductSelect in useProductLicense['data']}><i className="fa-solid fa-check" style={{marginRight: '10px'}}></i>{t('apply')}</button>
+                                                            disabled={useProductSelect in useProductLicense['data']}><i
+                                                        className="fa-solid fa-check"
+                                                        style={{marginRight: '10px'}}></i>{t('apply')}</button>
                                                 </td>
                                             </tr>
                                         )}
@@ -135,7 +137,9 @@ export default function ProductSubscribe(props) {
                                                     })}</td>
                                                     <td className="align-middle">
                                                         <button type="button" className="btn btn-primary"
-                                                                onClick={() => buy(useProductSelect, key)}><i className="fa-solid fa-cart-shopping" style={{marginRight: '10px'}}></i>{t('buy')}</button>
+                                                                onClick={() => buy(useProductSelect, key)}><i
+                                                            className="fa-solid fa-cart-shopping"
+                                                            style={{marginRight: '10px'}}></i>{t('buy')}</button>
                                                     </td>
                                                 </tr>
                                             )
@@ -155,34 +159,44 @@ export default function ProductSubscribe(props) {
 export function Payment(props) {
     const {t} = useTranslation()
 
+    const [usePaymentMethod, setPaymentMethod] = useState()
+
+    const changeMethod = (method) => {
+        setPaymentMethod(method)
+    }
+
     return (
-        <div className="row">
-            <div className="col-7">
+        <div className="row mb-4">
+            <div className="col-12 col-md-7">
                 <div className="card mb-4">
-                    <div className="card-header">
+                    <div className="card-header ">
                         <i className="fas fa-box" style={{marginRight: '10px'}}></i>{t('payment_method')}
                     </div>
                     <div className="card-body pt-3">
                         <div id="accordion">
-                            <div className="card border-primary">
-                                <div className="card-header  d-flex bg-primary text-white " id="headingOne">
+                            <div
+                                className={classNames("card", usePaymentMethod == 1 ? "border-primary" : null)}>
+                                <div className={classNames("card-header d-flex user-select-none cursor-pointer ", usePaymentMethod == 1 ? "bg-primary text-white" : null)} id="headingOne"
+                                     onClick={() => changeMethod(1)}>
                                     <i className="fa-solid fa-money-bill-transfer p-2" style={{fontSize: '18px'}}></i>
                                     <span className="align-middle pt-1">{t("bank_transfer")}</span>
                                 </div>
 
-                                <div id="collapseOne" className="collapse show" aria-labelledby="headingOne"
+                                <div id="collapseOne" className={classNames("collapse",usePaymentMethod == 1 ? "show" : null)} aria-labelledby="headingOne"
                                      data-parent="#accordion">
                                     <div className="card-body">
                                         <span>{t("bank_transfer_desc")}</span>
                                     </div>
                                 </div>
                             </div>
-                            <div className="card mt-2">
-                                <div className="card-header  d-flex " id="headingOne">
+                            <div
+                                className={classNames("card mt-2", usePaymentMethod == 2 ? "border-primary " : null)}>
+                                <div className={classNames("card-header d-flex user-select-none cursor-pointer ", usePaymentMethod == 2 ? "bg-primary text-white" : null)} id="headingOne"
+                                     onClick={() => changeMethod(2)}>
                                     <i className="fa-solid fa-credit-card p-2" style={{fontSize: '18px'}}></i>
                                     <span className="align-middle pt-1">{t("vnpay")}</span>
                                 </div>
-                                <div id="collapseTwo" className="collapse" aria-labelledby="headingTwo"
+                                <div id="collapseTwo" className={classNames("collapse",usePaymentMethod == 2 ? "show" : null)} aria-labelledby="headingTwo"
                                      data-parent="#accordion">
                                     <div className="card-body">
                                         <span>{t("vnpay_desc")}</span>
@@ -194,7 +208,7 @@ export function Payment(props) {
                     </div>
                 </div>
             </div>
-            <div className="col-5">
+            <div className="col-12 col-md-5">
                 <div className="card mb-3">
                     <div className="card-header">
                         <i className="fas fa-box" style={{marginRight: '10px'}}></i>{t('my_order')}
@@ -217,7 +231,9 @@ export function Payment(props) {
                     </div>
 
                 </div>
-                <button type="button" className="btn btn-primary p-3 w-100"><i className="fa-solid fa-cart-shopping" style={{marginRight: '10px'}}></i>{t("payment_confirm")}</button>
+                <button type="button" className="btn btn-primary p-3 w-100"><i className="fa-solid fa-cart-shopping"
+                                                                               style={{marginRight: '10px'}}></i>{t("payment_confirm")}
+                </button>
             </div>
         </div>
     )
