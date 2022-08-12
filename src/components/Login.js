@@ -106,7 +106,6 @@ export default function Login(props) {
                                     <legend>{t('login')}</legend>
                                     <label className="mb-1">Email</label>
                                     <div className="input-group">
-
                                         <span className="input-group-addon">
                                             <i
                                                 className="glyphicon glyphicon-envelope"></i>

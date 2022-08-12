@@ -56,5 +56,15 @@
   "free_trial_7day": "Dùng thử miễn phí 7 ngày",
   "try_now": "Thử ngay",
   "apply": "Áp dụng",
-  "buy": "Mua"
+  "buy": "Mua",
+  "payment": "Thanh toán",
+  "payment_method": "Lựa chọn phương thức thanh toán",
+  "my_order": "Đơn hàng",
+  "bank_transfer": "Chuyển khoản ngân hàng",
+  "bank_transfer_desc": "Thanh toán thông qua các ngân hàng tại Việt Nam",
+  "payment_confirm": "Tiến hành thanh toán",
+  "vnpay" : "Thẻ ATM nội địa/Internet banking/QR Code",
+  "vnpay_desc": "Thay toán qua VNPay, hỗ trợ thẻ ATM nội địa/Internet banking/QR Code",
+  "payment_total": "Tổng tiền"
+
 }

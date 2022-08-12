@@ -56,5 +56,13 @@
   "free_trial_7day": "7 days free trial",
   "try_now": "Try now",
   "apply": "Apply",
-  "buy": "Buy"
+  "buy": "Buy",
+  "payment": "Payment",
+  "payment_method": "Payment method",
+  "my_order": "Order",
+  "bank_transfer": "Bank transfer",
+  "bank_transfer_desc": "Payment over banks in Vietnam",
+  "payment_confirm": "Payment confirmation",
+  "vnpay" : "Thẻ ATM nội địa/Internet banking/QR Code",
+  "payment_total": "Total"
 }
