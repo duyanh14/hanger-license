@@ -15,6 +15,8 @@ import {
 import {
     loading as storeLoading,
 } from '../stores/App'
+import {url as storeURL} from "../stores/URL";
+
 import Navigation from "../components/Navigation";
 import {useRecoilState} from "recoil";
 import HttpApi from "i18next-http-backend";
@@ -24,10 +26,12 @@ import Footer from "../components/Footer";
 import Login from "../components/Login";
 import modelAccount from '../models/Account'
 import modelProduct from '../models/Product'
+import {useLocation} from "react-router-dom";
 
 export default function App() {
 
     const {t} = useTranslation()
+    const location = useLocation();
 
     const [useConfig, setConfig] = useRecoilState(storeConfig);
     const [useConfigByDomain, setConfigByDomain] = useRecoilState(storeConfigByDomain);
@@ -36,6 +40,7 @@ export default function App() {
     const [useProductLicense, setProductLicense] = useRecoilState(storeProductLicense);
 
     const [useLoading, setLoading] = useRecoilState(storeLoading);
+    const [useURL, setURL] = useRecoilState(storeURL);
 
     let loadingCount = 0;
     const loading = () => {
@@ -54,6 +59,10 @@ export default function App() {
     }
 
     useEffect(() => {
+        setURL({pathName: location.pathname})
+    }, [location.pathname]);
+
+    useEffect(() => {
         const setup = async () => {
             await new Promise(resolve => setTimeout(resolve, 500));
 
@@ -67,7 +76,7 @@ export default function App() {
             } else {
                 config = useConfigByDomain[Object.keys(useConfigByDomain)[0]]
             }
-            config = {...useConfig, ...config};
+            config = {...useConfig, ...config, domain: domain};
             setConfig(config);
 
             document.title = config['title'];
@@ -95,7 +104,7 @@ export default function App() {
             loading();
         }
         setup();
-    }, [useAccount])
+    }, [useAccount == null])
 
     return (
         <div>

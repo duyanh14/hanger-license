@@ -65,6 +65,9 @@
   "payment_confirm": "Tiến hành thanh toán",
   "vnpay" : "Thẻ ATM nội địa/Internet banking/QR Code",
   "vnpay_desc": "Thay toán qua VNPay, hỗ trợ thẻ ATM nội địa/Internet banking/QR Code",
-  "payment_total": "Tổng tiền"
-
+  "payment_total": "Tổng tiền",
+  "email_not_match": "Email không trùng khớp với tài khoản nào",
+  "forgot_password_request_success": "Yêu cầu thay đổi mật khẩu thành công. Hãy kiểm tra email \"{{email}}\" và làm theo hướng dẫn",
+  "forgot_password_email_subject": "Thay đổi mật khẩu của bạn",
+  "forgot_password_email_body": "Truy cập liên kết dưới đây và thực hiện thay đổi mật khẩu của bạn, liên kết có hạn sử dụng trong vòng 1 tiếng kể từ khi thư này được gửi đi"
 }

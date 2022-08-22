@@ -5,6 +5,7 @@ import {config as storeConfig} from "../stores/Config";
 import modelAccount from '../models/Account'
 import {account as storeAccount} from "../stores/Account";
 import {loading as storeLoading} from "../stores/App";
+import {url as storeURL} from "../stores/URL";
 
 var md5 = require('md5');
 
@@ -16,6 +17,7 @@ export default function Login(props) {
     const [useAccount, setAccount] = useRecoilState(storeAccount);
 
     const [useLoading, setLoading] = useRecoilState(storeLoading);
+    const [useURL, setURL] = useRecoilState(storeURL);
 
     const [useNotice, setNotice] = useState();
     const [useView, setView] = useState("login");
@@ -31,6 +33,10 @@ export default function Login(props) {
         'email': null,
         'phone_number': null,
         'password': null
+    })
+
+    const [useForgotPasswordField, setForgotPasswordField] = useState({
+        'email': null,
     })
 
     const fetchDomainURI = () => {
@@ -89,13 +95,31 @@ export default function Login(props) {
         }
     }
 
-    const forgotPassword = () => {
-
+    const forgotPassword = async () => {
+        try {
+            const login = await modelAccount.forgotPassword(useForgotPasswordField['email'], useConfig['domain'], t('forgot_password_email_subject'), t('forgot_password_email_body'));
+            setView('login')
+            alert(t('forgot_password_request_success', {
+                email: login.email
+            }))
+        } catch (err) {
+            let message = t('unknown_error');
+            switch (err.message) {
+                case 'EMAIL_NOT_MATCH':
+                    message = t('email_not_match');
+                    break;
+            }
+            alert(message);
+        }
     }
+
+    useEffect(() => {
+        alert(useURL['pathName']);
+    },[useURL])
 
     return (
         <div className="container">
-            <div className="col-sm-10 col-md-5 mx-auto mt-5">
+            <div className="col-xl-5 col-md-6 col-sm-10 col-12 mx-auto mt-5">
                 <div className="panel panel-default">
                     <div className="panel-body">
                         <div>
@@ -260,12 +284,18 @@ export default function Login(props) {
                                                 className="glyphicon glyphicon-envelope"></i>
                                         </span>
                                         <input type="text" name="email" required
-                                               className="form-control"/>
+                                               className="form-control" value={useForgotPasswordField.email}
+                                               onChange={(value) => {
+                                                   setForgotPasswordField({
+                                                       ...useForgotPasswordField,
+                                                       email: value.target.value
+                                                   })
+                                               }}/>
                                     </div>
 
                                     <div className="form-group text-center mt-3">
                                         <input type="submit" name="submit" value={t('request')}
-                                               className="btn btn-primary btn-block w-50"/>
+                                               className="btn btn-primary btn-block w-50" onClick={forgotPassword}/>
                                     </div>
                                     <div className="form-group">
                                         <hr/>
@@ -276,6 +306,55 @@ export default function Login(props) {
                                     </div>
                                 </div>
                             )}
+
+                            {useView == "forgot_password_reset" && (
+                                <div>
+                                    <legend>{t('change_password')}</legend>
+                                    <label className="mb-1">New password</label>
+                                    <div className="input-group">
+                                        <span className="input-group-addon">
+                                            <i
+                                                className="glyphicon glyphicon-envelope"></i>
+                                        </span>
+                                        <input type="password"  required
+                                               className="form-control" value={useForgotPasswordField.email}
+                                               onChange={(value) => {
+                                                   setForgotPasswordField({
+                                                       ...useForgotPasswordField,
+                                                       email: value.target.value
+                                                   })
+                                               }}/>
+                                    </div>
+                                    <label className="mb-1">Confirm new password</label>
+                                    <div className="input-group">
+                                        <span className="input-group-addon">
+                                            <i
+                                                className="glyphicon glyphicon-envelope"></i>
+                                        </span>
+                                        <input type="password" required
+                                               className="form-control" value={useForgotPasswordField.email}
+                                               onChange={(value) => {
+                                                   setForgotPasswordField({
+                                                       ...useForgotPasswordField,
+                                                       email: value.target.value
+                                                   })
+                                               }}/>
+                                    </div>
+
+                                    <div className="form-group text-center mt-3">
+                                        <input type="submit" name="submit" value={t('request')}
+                                               className="btn btn-primary btn-block w-50" onClick={forgotPassword}/>
+                                    </div>
+                                    <div className="form-group">
+                                        <hr/>
+                                        <div className="col-sm-6  w-100 text-center">{t('have_account')}? <a
+                                            href={'javascript:void(0)'}
+                                            onClick={() => changeView('login')}>{t('login')}</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            )}
+
                         </div>
                     </div>
                 </div>

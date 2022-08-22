@@ -7,6 +7,7 @@ import {product as storeProduct} from "../stores/Product";
 import modelProduct from '../models/Product'
 import classNames from "classnames";
 import {config as storeConfig} from "../stores/Config";
+import {configCurrency as storeConfigCurrency} from "../stores/Config";
 
 export default function ProductSubscribe(props) {
 
@@ -21,6 +22,7 @@ export default function ProductSubscribe(props) {
     const [useProductSelect, setProductSelect] = useState(useProduct ? Object.keys(useProduct)[0] : null);
     const [useProductPackageSelect, setProductPackageSelect] = useState();
     const [useConfig, setConfig] = useRecoilState(storeConfig);
+    const [useConfigCurrency, setConfigCurrency] = useRecoilState(storeConfigCurrency);
     const [useProductLicense, setProductLicense] = useRecoilState(storeProductLicense);
 
     useEffect(() => {
@@ -176,13 +178,17 @@ export function Payment(props) {
                         <div id="accordion">
                             <div
                                 className={classNames("card", usePaymentMethod == 1 ? "border-primary" : null)}>
-                                <div className={classNames("card-header d-flex user-select-none cursor-pointer ", usePaymentMethod == 1 ? "bg-primary text-white" : null)} id="headingOne"
-                                     onClick={() => changeMethod(1)}>
+                                <div
+                                    className={classNames("card-header d-flex user-select-none cursor-pointer ", usePaymentMethod == 1 ? "bg-primary text-white" : null)}
+                                    id="headingOne"
+                                    onClick={() => changeMethod(1)}>
                                     <i className="fa-solid fa-money-bill-transfer p-2" style={{fontSize: '18px'}}></i>
                                     <span className="align-middle pt-1">{t("bank_transfer")}</span>
                                 </div>
 
-                                <div id="collapseOne" className={classNames("collapse",usePaymentMethod == 1 ? "show" : null)} aria-labelledby="headingOne"
+                                <div id="collapseOne"
+                                     className={classNames("collapse", usePaymentMethod == 1 ? "show" : null)}
+                                     aria-labelledby="headingOne"
                                      data-parent="#accordion">
                                     <div className="card-body">
                                         <span>{t("bank_transfer_desc")}</span>
@@ -191,12 +197,16 @@ export function Payment(props) {
                             </div>
                             <div
                                 className={classNames("card mt-2", usePaymentMethod == 2 ? "border-primary " : null)}>
-                                <div className={classNames("card-header d-flex user-select-none cursor-pointer ", usePaymentMethod == 2 ? "bg-primary text-white" : null)} id="headingOne"
-                                     onClick={() => changeMethod(2)}>
+                                <div
+                                    className={classNames("card-header d-flex user-select-none cursor-pointer ", usePaymentMethod == 2 ? "bg-primary text-white" : null)}
+                                    id="headingOne"
+                                    onClick={() => changeMethod(2)}>
                                     <i className="fa-solid fa-credit-card p-2" style={{fontSize: '18px'}}></i>
                                     <span className="align-middle pt-1">{t("vnpay")}</span>
                                 </div>
-                                <div id="collapseTwo" className={classNames("collapse",usePaymentMethod == 2 ? "show" : null)} aria-labelledby="headingTwo"
+                                <div id="collapseTwo"
+                                     className={classNames("collapse", usePaymentMethod == 2 ? "show" : null)}
+                                     aria-labelledby="headingTwo"
                                      data-parent="#accordion">
                                     <div className="card-body">
                                         <span>{t("vnpay_desc")}</span>
@@ -223,7 +233,7 @@ export function Payment(props) {
                             <div className={"col-6"}><b className={"float-end"}>1 năm</b></div>
                         </div>
                     </div>
-                    <div className="card-footer bg-transparent">
+                    <div className="card-footer bg-transparent p-3">
                         <div className={"row"}>
                             <div className={"col-6"}><b>{t("payment_total")}</b></div>
                             <div className={"col-6"}><b className={"float-end"}>450.000 VND</b></div>

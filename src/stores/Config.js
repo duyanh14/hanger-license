@@ -28,3 +28,15 @@ export const configByDomain = atom({
         }
     },
 });
+
+export const configCurrency = atom({
+    key: 'configCurrency',
+    default: {
+        'VND': {
+            'symbol': 'đ',
+        },
+        'USD': {
+            'symbol': '$',
+        }
+    },
+});

@@ -33,27 +33,28 @@ const Account = class {
         return response.data;
     }
 
-    static async forgotPassword(name) {
+    static async forgotPassword(email, domain, subject, body) {
         const formData = new FormData();
-        formData.append('name', name);
+        formData.append('email', email);
+        formData.append('domain', domain);
+        formData.append('mail_subject', subject);
+        formData.append('mail_body', body);
 
-        const url = '/user/account/forgot_password';
+        const url = '/account/forgot-password';
         const response = await api.post(url, formData);
 
-        console.log(response);
-
-        if (!response.success) {
-            throw new Error(response.reason);
+        if ('error' in response) {
+            throw new Error(response.error);
         }
 
-        return {email: response.data.user.account.info.email};
+        return {email: response.email};
     }
 
     static async forgotPasswordGet(access_token) {
         const formData = new FormData();
         formData.append('access_token', access_token);
 
-        const url = '/user/account/forgot_password/get';
+        const url = '/account/forgot-password/get';
         const response = await api.post(url, formData);
 
         if (!response.success) {

@@ -65,5 +65,9 @@
   "payment_confirm": "Payment confirmation",
   "vnpay" : "Domestic ATM card/Internet banking/QR Code",
   "vnpay_desc": "Payment via VNPay. Support domestic ATM card/Internet banking/QR Code",
-  "payment_total": "Total"
+  "payment_total": "Total",
+  "email_not_match": "Email not match",
+  "forgot_password_request_success": "Request to change password successfully. Please check your email \"{{email}}\" and follow the instructions",
+  "forgot_password_email_subject": "Reset your password",
+  "forgot_password_email_body": "Go to the link below and change your password, the link is valid for 1 hour from the time this message was sent"
 }
