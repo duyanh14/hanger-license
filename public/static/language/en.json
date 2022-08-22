@@ -69,5 +69,8 @@
   "email_not_match": "Email not match",
   "forgot_password_request_success": "Request to change password successfully. Please check your email \"{{email}}\" and follow the instructions",
   "forgot_password_email_subject": "Reset your password",
-  "forgot_password_email_body": "Go to the link below and change your password, the link is valid for 1 hour from the time this message was sent"
+  "forgot_password_email_body": "Go to the link below and change your password, the link is valid for 1 hour from the time this message was sent",
+  "new_password": "New password",
+  "confirm_new_password": "Confirm new password",
+  "forgot_password_expire": "Password reset request has expired"
 }

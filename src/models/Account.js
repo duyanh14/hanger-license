@@ -57,11 +57,11 @@ const Account = class {
         const url = '/account/forgot-password/get';
         const response = await api.post(url, formData);
 
-        if (!response.success) {
-            throw new Error(response.reason);
+        if ('error' in response) {
+            throw new Error(response.error);
         }
 
-        return true;
+        return response;
     }
 
     static async changePassword(password, access_token) {
