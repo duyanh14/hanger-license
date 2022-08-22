@@ -237,7 +237,7 @@ export default function Login(props) {
                                     <div className="form-group">
                                         <hr/>
                                         <div className="col-sm-6  w-100 text-center">{t('no_account')}? <a href={'javascript:void(0)'}
-                                                                                                            onClick={() => changeView('register')}>{t('register')}?</a>
+                                                                                                            onClick={() => changeView('register')}>{t('register')}</a>
                                         </div>
                                     </div>
                                 </div>
@@ -338,7 +338,7 @@ export default function Login(props) {
                                     <div className="form-group">
                                         <hr/>
                                         <div className="col-sm-6  w-100 text-center">{t('have_account')}? <a href={'javascript:void(0)'}
-                                                                                                             onClick={() => changeView('login')}>{t('login')}?</a>
+                                                                                                             onClick={() => changeView('login')}>{t('login')}</a>
                                         </div>
                                     </div>
                                 </div>
@@ -371,7 +371,7 @@ export default function Login(props) {
                                     <div className="form-group">
                                         <hr/>
                                         <div className="col-sm-6  w-100 text-center">{t('have_account')}? <a href={'javascript:void(0)'}
-                                                                                                             onClick={() => changeView('login')}>{t('login')}?</a>
+                                                                                                             onClick={() => changeView('login')}>{t('login')}</a>
                                         </div>
                                     </div>
                                 </div>
@@ -419,7 +419,7 @@ export default function Login(props) {
                                     <div className="form-group">
                                         <hr/>
                                         <div className="col-sm-6  w-100 text-center">{t('have_account')}? <a href={'javascript:void(0)'}
-                                                                                                             onClick={() => changeView('login')}>{t('login')}?</a>
+                                                                                                             onClick={() => changeView('login')}>{t('login')}</a>
                                         </div>
                                     </div>
                                 </div>
