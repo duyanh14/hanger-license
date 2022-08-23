@@ -72,5 +72,10 @@
   "forgot_password_email_body": "Truy cập liên kết dưới đây và thực hiện thay đổi mật khẩu của bạn, liên kết có hạn sử dụng trong vòng 1 tiếng kể từ khi thư này được gửi đi",
   "new_password": "Mật khẩu mới",
   "confirm_new_password": "Xác nhận mật khẩu mới",
-  "forgot_password_expire": "Yêu cầu thay đổi mật khẩu hết hạn"
+  "forgot_password_expire": "Yêu cầu thay đổi mật khẩu hết hạn",
+  "paypal": "Paypal",
+  "paypal_desc": "Thanh toán thông qua Paypal",
+  "license_by_account": "Giấy phép theo tài khoản",
+  "activation_key": "Khóa kích hoạt",
+  "create_activation_key": "Tạo khóa kích hoạt"
 }

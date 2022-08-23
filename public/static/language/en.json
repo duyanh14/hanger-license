@@ -72,5 +72,10 @@
   "forgot_password_email_body": "Go to the link below and change your password, the link is valid for 1 hour from the time this message was sent",
   "new_password": "New password",
   "confirm_new_password": "Confirm new password",
-  "forgot_password_expire": "Password reset request has expired"
+  "forgot_password_expire": "Password reset request has expired",
+  "paypal": "Paypal",
+  "paypal_desc": "Payment over Paypal",
+  "license_by_account": "License by account",
+  "activation_key": "Activation key",
+  "create_activation_key": "Create activation key"
 }

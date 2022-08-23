@@ -40,6 +40,10 @@ export default function Sidebar(props) {
                                     <div className="sb-nav-link-icon"><i className="fas fa-tachometer-alt"></i></div>
                                     {t('license_bill')}
                                 </NavLink>
+                                <NavLink to={'create-activation-key'} className="nav-link" activeClassName="selected">
+                                    <div className="sb-nav-link-icon"><i className="fas fa-tachometer-alt"></i></div>
+                                    {t('create_activation_key')}
+                                </NavLink>
                             </div>
                         )}
                     </div>

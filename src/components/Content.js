@@ -11,6 +11,7 @@ import {
     Route,
     Redirect, useLocation
 } from "react-router-dom";
+import CreateActivationKey from "../containers/CreateActivationKey";
 
 export default function Content(props) {
 
@@ -29,6 +30,9 @@ export default function Content(props) {
                     </Route>
                     <Route path="/manage-bill">
                         <ManageBill/>
+                    </Route>
+                    <Route path="/create-activation-key">
+                        <CreateActivationKey/>
                     </Route>
                     <Route path="/">
                         <Dashboard/>
