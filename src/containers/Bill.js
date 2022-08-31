@@ -9,7 +9,7 @@ export default function Bill(props) {
     return (
         <div className="container-fluid px-4">
             <h1 className="mt-4">{t('bill')}</h1>
-            <div className="card mb-4 mt-4">
+            <div className="card mb-4 mt-4 d-none">
                 <div className="card-header">
                     <i className="fas fa-user mr-3" style={{marginRight: '10px'}}></i>{t('statistic')}
 
@@ -26,16 +26,16 @@ export default function Bill(props) {
                 <div className="card-body">
 
                     <div className="table-responsive">
-                        <table className="table table-bordered table-hover table-striped tablesorter">
+                        <table className="table table-bordered table-hover table-striped tablesorter mb-0">
                             <thead>
                             <tr>
                                 <th className="header">ID</th>
-                                {/*<th className="header">{t('product')}</th>*/}
+                                <th className="header">{t('product')}</th>
                                 <th className="header">{t('package')}</th>
-                                <th className="header">{t('registration_date')}</th>
-                                <th className="header">{t('expiration_date')}</th>
+                                <th className="header">{t('create_date')}</th>
                                 <th className="header">{t('payment_method')}</th>
                                 <th className="header">{t('status')}</th>
+                                <th className="header">{t('action')}</th>
                             </tr>
                             </thead>
                             <tbody>

@@ -58,7 +58,7 @@
   "apply": "Apply",
   "buy": "Buy",
   "payment": "Payment",
-  "payment_method": "Payment method",
+  "choose_payment_method": "Choose payment method",
   "my_order": "Order",
   "bank_transfer": "Bank transfer",
   "bank_transfer_desc": "Payment over banks in Vietnam",
@@ -77,5 +77,9 @@
   "paypal_desc": "Payment over Paypal",
   "license_by_account": "License by account",
   "activation_key": "Activation key",
-  "create_activation_key": "Create activation key"
+  "create_activation_key": "Create activation key",
+  "this_is_activation_key": "This is activation key",
+  "create_date": "Create date",
+  "no_license": "No license is registered",
+  "name": "Name"
 }

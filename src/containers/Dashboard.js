@@ -61,7 +61,7 @@ export default function Dashboard(props) {
                 <div className="card-body">
                     <form>
                         <div className="form-group">
-                            <label htmlFor="formGroupExampleInput">Name</label>
+                            <label htmlFor="formGroupExampleInput">{t('name')}</label>
                             <div className={'mt-1'}>
                                 <input type="text" className="form-control" aria-label="Small"
                                        aria-describedby="inputGroup-sizing-sm" disabled
@@ -134,16 +134,65 @@ export default function Dashboard(props) {
                                 <th className="header">{t('product')}</th>
                                 <th className="header">{t('registration_date')}</th>
                                 <th className="header">{t('expiration_date')}</th>
+                                <th className="header">{t('action')}</th>
                             </tr>
                             </thead>
                             <tbody>
-                            {useProductLicense && useProductLicense['data'] && Object.keys(useProductLicense['data']).map((key, index) => (
+                            {useProductLicense && useProductLicense['data'] ? (
+                                <React.Fragment>
+                                    {useProductLicense['data']['account'] && Object.keys(useProductLicense['data']['account']).length > 0 && (
+                                        <React.Fragment>
+                                            <tr>
+                                                <th className="table-primary" colSpan="9">{t('license_by_account')}</th>
+                                            </tr>
+                                            {Object.keys(useProductLicense['data']['account']).map((key, index) => (
+                                                    <tr style={{height: "55px"}}>
+                                                        <td class="align-middle">{useProductLicense['data']['account'][key]['name']}</td>
+                                                        <td class="align-middle">{dateFormat(timestamp.toDate(useProductLicense['data']['account'][key]['start']), 'HH:MM dd/mm/yyyy')}</td>
+                                                        <td class="align-middle">{dateFormat(timestamp.toDate(useProductLicense['data']['account'][key]['end']), 'HH:MM dd/mm/yyyy')}</td>
+                                                        <td class="align-middle"></td>
+                                                    </tr>
+                                                )
+                                            )}
+                                        </React.Fragment>
+                                    )}
+
+                                    {useProductLicense['data']['key'] && useProductLicense['data']['key'].length > 0 && (
+                                        <React.Fragment>
+                                            <tr>
+                                                <th className="table-primary" colSpan="9">{t('activation_key')}</th>
+                                            </tr>
+                                            {useProductLicense['data']['key'].map((key, index) => (
+                                                    <tr>
+                                                        <td class="align-middle">{key['name']}</td>
+                                                        <td class="align-middle">{dateFormat(timestamp.toDate(key['start']), 'HH:MM dd/mm/yyyy')}</td>
+                                                        <td class="align-middle">{dateFormat(timestamp.toDate(key['end']), 'HH:MM dd/mm/yyyy')}</td>
+                                                        <td class="align-middle">
+                                                            <button type="button" className="btn btn-primary"
+                                                                    onClick={() => {
+                                                                        prompt(t('this_is_activation_key'), key['key']);
+                                                                    }}><i
+                                                                className="fa-solid fa-key"
+                                                            ></i></button>
+                                                        </td>
+                                                    </tr>
+                                                )
+                                            )}
+                                        </React.Fragment>
+                                    )}
+
+                                    {!useProductLicense['data']['key'] || useProductLicense['data']['key'].length <= 0 &&
+                                    !useProductLicense['data']['account'] || Object.keys(useProductLicense['data']['account']).length <= 0 && (
+                                        <tr>
+                                            <td colSpan="9">{t('no_license')}</td>
+                                        </tr>
+                                    )}
+
+                                </React.Fragment>
+                            ) : (
                                 <tr>
-                                    <td>{useProductLicense['data'][key]['name']}</td>
-                                    <td>{dateFormat(timestamp.toDate(useProductLicense['data'][key]['start']), 'HH:MM dd/mm/yyyy')}</td>
-                                    <td>{dateFormat(timestamp.toDate(useProductLicense['data'][key]['end']), 'HH:MM dd/mm/yyyy')}</td>
+                                    <td colSpan="9">{t('no_license')}</td>
                                 </tr>
-                                )
                             )}
                             </tbody>
                         </table>

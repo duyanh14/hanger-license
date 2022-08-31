@@ -68,16 +68,16 @@ export default function ProductSubscribe(props) {
                                 <div className="card-body">
 
                                     <div class="form-check pb-2">
-                                        <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                               id="flexRadioDefault1"/>
-                                        <label class="form-check-label" for="flexRadioDefault1">
+                                        <input class="form-check-input " type="radio" name="flexRadioDefault"
+                                               id="flexRadioDefault1" checked/>
+                                        <label class="form-check-label user-select-none" for="flexRadioDefault1">
                                             {t("license_by_account")}
                                         </label>
                                     </div>
                                     <div class="form-check pb-3">
                                         <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                               id="flexRadioDefault2" checked/>
-                                        <label class="form-check-label" for="flexRadioDefault2">
+                                               id="flexRadioDefault2" />
+                                        <label class="form-check-label user-select-none" for="flexRadioDefault2">
                                             {t("activation_key")}
                                         </label>
                                     </div>
@@ -92,7 +92,6 @@ export default function ProductSubscribe(props) {
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            {}
                                             {useProduct[useProductSelect]['config']['trial']['enable'] && (
                                                 <tr className="">
                                                     <td className="align-middle">
@@ -101,7 +100,7 @@ export default function ProductSubscribe(props) {
                                                     <td className="align-middle">0 {useConfig['currency']}</td>
                                                     <td className="align-middle">
                                                         <button type="button" className="btn btn-primary"
-                                                                disabled={useProductSelect in useProductLicense['data']}>
+                                                                disabled={useProductSelect in useProductLicense['data']['account']}>
                                                             <i
                                                                 className="fa-solid fa-check"
                                                                 style={{marginRight: '10px'}}></i>{t('apply')}</button>
@@ -181,6 +180,13 @@ export function Payment(props) {
         ps.total = pr;
 
         setProductSelect({...useProductSelect, ps});
+
+
+        if (useConfig["currency"] == "VND") {
+            setPaymentMethod(1);
+        } else if (useConfig["currency"] == "USD") {
+            setPaymentMethod(3);
+        }
     }, [])
 
     return (

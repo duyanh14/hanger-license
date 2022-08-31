@@ -8,73 +8,33 @@ export default function ManageBill(props) {
 
     return (
         <div className="container-fluid px-4">
-            <h1 className="mt-4">Dashboard</h1>
-            <ol className="breadcrumb mb-4">
-                <li className="breadcrumb-item active">Dashboard</li>
-            </ol>
-            <div className="table-responsive">
-                <table className="table table-bordered table-hover table-striped tablesorter">
-                    <thead>
-                    <tr>
-                        <th className="header">Order</th>
-                        <th className="header">Order Date</th>
-                        <th className="header">Order Time</th>
-                        <th className="header headerSortUp">Amount (USD)</th>
-                    </tr>
-                    </thead>
-                    <tbody>
+            <h1 className="mt-4">{t('bill')}</h1>
+            <div className="card mb-4 mt-4">
+                <div className="card-header">
+                    <i className="fas fa-user mr-3" style={{marginRight: '10px'}}></i>{t('bill')}
 
+                </div>
+                <div className="card-body">
 
-                    <tr>
-                        <td>3322</td>
-                        <td>10/21/2013</td>
-                        <td>2:49 PM</td>
-                        <td>$8345.23</td>
-                    </tr>
-                    <tr>
-                        <td>3320</td>
-                        <td>10/21/2013</td>
-                        <td>2:15 PM</td>
-                        <td>$5663.54</td>
-                    </tr>
-                    <tr>
-                        <td>3319</td>
-                        <td>10/21/2013</td>
-                        <td>2:13 PM</td>
-                        <td>$943.45</td>
-                    </tr>
-                    <tr>
-                        <td>3324</td>
-                        <td>10/21/2013</td>
-                        <td>3:03 PM</td>
-                        <td>$724.17</td>
-                    </tr>
-                    <tr>
-                        <td>3326</td>
-                        <td>10/21/2013</td>
-                        <td>3:29 PM</td>
-                        <td>$321.33</td>
-                    </tr>
-                    <tr>
-                        <td>3321</td>
-                        <td>10/21/2013</td>
-                        <td>2:23 PM</td>
-                        <td>$245.12</td>
-                    </tr>
-                    <tr>
-                        <td>3325</td>
-                        <td>10/21/2013</td>
-                        <td>3:20 PM</td>
-                        <td>$234.34</td>
-                    </tr>
-                    <tr>
-                        <td>3323</td>
-                        <td>10/21/2013</td>
-                        <td>3:00 PM</td>
-                        <td>$23.71</td>
-                    </tr>
-                    </tbody>
-                </table>
+                    <div className="table-responsive">
+                        <table className="table table-bordered table-hover table-striped tablesorter mb-0">
+                            <thead>
+                            <tr>
+                                <th className="header">ID</th>
+                                {/*<th className="header">{t('product')}</th>*/}
+                                {/*<th className="header">{t('package')}</th>*/}
+                                <th className="header">{t('create_date')}</th>
+                                <th className="header">{t('payment_method')}</th>
+                                <th className="header">{t('status')}</th>
+                                <th className="header">{t('action')}</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
         </div>
     );

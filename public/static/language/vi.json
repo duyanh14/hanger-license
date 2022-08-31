@@ -58,7 +58,7 @@
   "apply": "Áp dụng",
   "buy": "Mua",
   "payment": "Thanh toán",
-  "payment_method": "Lựa chọn phương thức thanh toán",
+  "choose_payment_method": "Lựa chọn phương thức thanh toán",
   "my_order": "Đơn hàng",
   "bank_transfer": "Chuyển khoản ngân hàng",
   "bank_transfer_desc": "Thanh toán thông qua các ngân hàng tại Việt Nam",
@@ -77,5 +77,9 @@
   "paypal_desc": "Thanh toán thông qua Paypal",
   "license_by_account": "Giấy phép theo tài khoản",
   "activation_key": "Khóa kích hoạt",
-  "create_activation_key": "Tạo khóa kích hoạt"
+  "create_activation_key": "Tạo khóa kích hoạt",
+  "this_is_activation_key": "Dưới đây là khóa kích hoạt",
+  "create_date": "Ngày tạo",
+  "no_license": "Không có giấy phép nào được đăng ký",
+  "name": "Tên"
 }
